@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-sm-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">User ({{model.id}})</h3>
+      </div>
+      <div class="panel-body">
+        <div class="form-horizontal">
+          <div class="form-group">
+            <label for="userName" class="col-sm-3 control-label">Name</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="userName" placeholder={{model.name}}>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="userPass" class="col-sm-3 control-label">Password</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="userPass" placeholder={{model.password}}>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-9">
+              <button type="submit" class="btn btn-default">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

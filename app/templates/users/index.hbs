@@ -9,6 +9,7 @@
           <th>id</th>
           <th>name</th>
           <th>password</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -17,6 +18,7 @@
           <td>{{user.id}}</td>
           <td>{{user.name}}</td>
           <td>{{user.password}}</td>
+          <td>{{#link-to 'users.edit' user class='btn btn-success btn-xs'}}edit{{/link-to}}</td>
         </tr>
         {{/each}}
       </tbody>
