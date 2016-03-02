@@ -1,0 +1,5 @@
+<div class="list-group">
+  {{#each model.groups as |group|}}
+    {{#link-to 'login.users' group.id class="list-group-item list-group-item-info"}}{{group.name}}{{/link-to}}
+  {{/each}}
+</div>

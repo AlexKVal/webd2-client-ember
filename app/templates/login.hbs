@@ -1,0 +1,13 @@
+<ol class="breadcrumb">
+  <li><a href="#">Home</a></li>
+  <li class="active">Group</li>
+</ol>
+
+<p>login.hbs {{#link-to 'login'}}Groups list{{/link-to}}</p>
+<p>
+{{#each model.groups as |group|}}
+  {{#link-to 'login.users' group.id}}({{group.name}}){{/link-to}}
+{{/each}}
+</p>
+
+{{outlet}}

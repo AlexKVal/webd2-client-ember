@@ -1,0 +1,5 @@
+<p>users.hbs ({{model.name}})</p>
+{{#each groupUsers as |user|}}
+  <span>(U: [{{user.groupId}}] {{user.name}})</span>
+{{/each}}
+{{outlet}}
