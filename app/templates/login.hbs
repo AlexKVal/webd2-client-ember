@@ -5,7 +5,7 @@
 
 <p>login.hbs {{#link-to 'login'}}Groups list{{/link-to}}</p>
 <p>
-{{#each model.groups as |group|}}
+{{#each model as |group|}}
   {{#link-to 'login.users' group.id}}({{group.name}}){{/link-to}}
 {{/each}}
 </p>
