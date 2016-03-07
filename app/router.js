@@ -10,7 +10,9 @@ Router.map(function() {
     this.route('edit', { path: ':id/edit' });
   });
   this.route('login', function() {
-    this.route('users', { path: ':group_id/users' });
+    this.route('users', { path: ':group_id/users' }, function() {
+      this.route('auth', { path: ':user_id/auth' });
+    });
   });
 });
 
