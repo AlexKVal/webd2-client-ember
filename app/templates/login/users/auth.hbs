@@ -5,7 +5,8 @@
   <div class="panel-body">
     <div class="input-group">
       {{input value=userPassword enter="passwordSubmit"
-        type="text" class="form-control" placeholder="password"}}
+        type="text" class="form-control" placeholder="password"
+        autocapitalize="off" autocorrect="off"}}
       <span class="input-group-btn">
         <button {{action "passwordSubmit" model userPassword}}
           class="btn btn-success" type="button">Sign In</button>
