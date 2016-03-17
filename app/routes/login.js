@@ -1,15 +1,8 @@
 import Ember from 'ember';
+import UnauthenticatedRouteMixin from 'ember-simple-auth/mixins/unauthenticated-route-mixin';
 
-export default Ember.Route.extend({
+export default Ember.Route.extend(UnauthenticatedRouteMixin, {
   model() {
     return this.store.findAll('user-group');
-  },
-
-  actions: {
-    passwordSubmit(user, password) {
-      console.log(user.get('name'));
-      console.log(password);
-      console.log('passwordSubmit clicked');
-    }
   }
 });

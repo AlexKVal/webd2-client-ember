@@ -2,6 +2,6 @@
   {{#link-to 'login' class="list-group-item list-group-item-info"}}{{model.name}}{{/link-to}}
 
   {{#each model.users as |user|}}
-    {{#link-to 'login.users.auth' user.id class="list-group-item list-group-item-info"}}{{user.name}}{{/link-to}}
+    {{#link-to 'login.users.auth' user class="list-group-item list-group-item-info"}}{{user.name}}{{/link-to}}
   {{/each}}
 </div>

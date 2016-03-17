@@ -1,0 +1,23 @@
+{{#if errorMessage}}
+  <div class="alert alert-danger">
+    <strong>Login failed:</strong> {{errorMessage}}
+  </div>
+{{/if}}
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{user.name}}</h3>
+  </div>
+  <div class="panel-body">
+    <form {{action 'authenticate' user.id password on='submit'}}>
+      <div class="input-group">
+        {{input value=password
+          type="text" class="form-control" placeholder="password"
+          autocapitalize="off" autocorrect="off"}}
+        <span class="input-group-btn">
+          <button class="btn btn-success" type="submit">Sign In</button>
+        </span>
+      </div>
+    </form>
+  </div>
+</div>
