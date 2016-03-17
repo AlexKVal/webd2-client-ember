@@ -1,0 +1,10 @@
+/* prevent iphone from zooming in when filling out a form, like login or application */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  select,
+  textarea,
+  input,
+  input:focus,
+  input:hover {
+    font-size: 16px !important;
+  }
+}
