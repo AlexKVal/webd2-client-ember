@@ -8,3 +8,36 @@
     font-size: 16px !important;
   }
 }
+
+/**
+ * Custom styling
+ */
+body {
+  padding-top: 50px;
+}
+
+.navbar-header > .pull-right {
+  margin-right: 5px;
+}
+
+@media (max-width: 435px) {
+  body {
+    padding-top: 30px;
+  }
+
+  .navbar {
+    min-height: 30px;
+  }
+
+  .navbar-brand {
+    padding-top: 5px;
+    padding-left: 10px;
+    font-size: 15px;
+    height: 30px;
+  }
+
+  .navbar-btn.btn-sm {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}

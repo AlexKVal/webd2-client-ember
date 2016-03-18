@@ -1,21 +1,14 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <ul class="nav navbar-nav navbar-left">
-      {{#link-to 'index' tagName='li'}}
-        <a href>Home</a>
-      {{/link-to}}
-      {{#link-to 'users' tagName='li'}}
-        <a href>Users</a>
-      {{/link-to}}
-      {{!-- {{#link-to 'users.new' tagName='li'}}
-        <a href>new</a>
-      {{/link-to}} --}}
-    </ul>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      {{#link-to 'index' class="navbar-brand"}}Home{{/link-to}}
 
-    {{#if session.isAuthenticated}}
-      <a {{action 'logout'}} class="btn btn-danger navbar-btn navbar-right">Logout</a>
-    {{else}}
-      <a {{action 'login'}} class="btn btn-success navbar-btn navbar-right">Login</a>
-    {{/if}}
+      {{#if session.isAuthenticated}}
+        <button {{action 'logout'}} class="btn btn-default btn-sm navbar-btn pull-right">User name</button>
+      {{else}}
+        <button {{action 'login'}} class="btn btn-success btn-sm navbar-btn pull-right">Login</button>
+      {{/if}}
+    </div>
+
   </div>
 </nav>
