@@ -23,7 +23,7 @@ module.exports = function(environment) {
     },
 
     'ember-simple-auth': {
-      routeAfterAuthentication: 'users' // TODO: it will be accounts
+      routeAfterAuthentication: 'user-accounts' // TODO: it will be table-accounts
     }
   };
 
