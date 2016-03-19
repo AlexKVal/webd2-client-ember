@@ -12,8 +12,7 @@
     <form {{action 'authenticate' user.id password on='submit'}}>
       <div class="input-group">
         {{focus-input value=password
-          type="text" class="form-control" placeholder="password"
-          autocapitalize="off" autocorrect="off"}}
+          type="password" class="form-control" placeholder="password"}}
         <span class="input-group-btn">
           <button class="btn btn-success" type="submit">Sign In</button>
         </span>
