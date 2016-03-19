@@ -23,7 +23,9 @@ module.exports = function(environment) {
     },
 
     'ember-simple-auth': {
-      routeAfterAuthentication: 'user-accounts' // TODO: it will be table-accounts
+      // authenticationRoute: 'login',
+      // routeAfterAuthentication: 'index',
+      // routeIfAlreadyAuthenticated: 'index'
     }
   };
 

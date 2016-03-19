@@ -1,11 +1,19 @@
 import Ember from 'ember';
 
-export default Ember.Component.extend({
-  session: Ember.inject.service(),
+const { Component, inject, computed } = Ember;
+
+export default Component.extend({
+  session: inject.service(),
+
+  authenticated: computed.oneWay('session.data.authenticated'),
+
+  isLoginRoute: computed('routeName', function() {
+    return this.get('routeName').match('login');
+  }),
 
   actions: {
     login() {
-      this.sendAction('onLogin');
+      this.sendAction('toLoginRoute');
     },
 
     logout() {
@@ -13,6 +21,14 @@ export default Ember.Component.extend({
       if (session.get('isAuthenticated')) {
         session.invalidate();
       }
+    },
+
+    userNamePress() {
+      this.sendAction('toLoginRoute');
+    },
+
+    back() {
+      history.back();
     }
   }
 });
