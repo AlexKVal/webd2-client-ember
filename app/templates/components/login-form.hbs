@@ -11,7 +11,7 @@
   <div class="panel-body">
     <form {{action 'authenticate' user.id password on='submit'}}>
       <div class="input-group">
-        {{input value=password
+        {{focus-input value=password
           type="text" class="form-control" placeholder="password"
           autocapitalize="off" autocorrect="off"}}
         <span class="input-group-btn">
