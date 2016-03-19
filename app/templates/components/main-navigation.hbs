@@ -8,10 +8,12 @@
           <button {{action 'logout'}} class="btn btn-danger btn-sm navbar-btn pull-right">Logout</button>
           <button {{action 'back'}} class="btn btn-success btn-sm navbar-btn pull-right">Cancel</button>
         {{else}}
-          <button {{action 'userNamePress'}} class="btn btn-default btn-sm navbar-btn pull-right">{{authenticated.name}}</button>
+          <button {{action toLoginRoute}} class="btn btn-default btn-sm navbar-btn pull-right">
+            {{session.data.authenticated.name}}
+          </button>
         {{/if}}
       {{else}}
-        <button {{action 'login'}} class="btn btn-success btn-sm navbar-btn pull-right">Login</button>
+        <button {{action toLoginRoute}} class="btn btn-success btn-sm navbar-btn pull-right">Login</button>
       {{/if}}
     </div>
   </div>
