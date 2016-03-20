@@ -8,8 +8,10 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     this._super(...arguments);
 
     const role = this.get('session.data.authenticated.role');
-    if (role && role !== 'super') {
-      this.get('flashMessages').danger(`(${this.get('routeName')}) Super admins only`);
+    if (role && role !== 'admin' && role !== 'super') {
+      this.get('flashMessages')
+      .danger(`(${this.get('routeName')}) Admins and higher only`);
+
       transition.abort();
       this.transitionTo('index');
     }

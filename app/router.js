@@ -15,6 +15,7 @@ Router.map(function() {
     });
   });
   this.route('options');
+  this.route('settled-accounts');
 });
 
 export default Router;

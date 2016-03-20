@@ -1,13 +1,9 @@
-<div class="page-header">Navigation page</div>
-
-<ul class="nav navbar-nav navbar-left">
-  {{#link-to 'index' tagName='li'}}
-    <a href>Home</a>
-  {{/link-to}}
-  {{#link-to 'user-accounts' tagName='li'}}
-    <a href>Users</a>
-  {{/link-to}}
-  {{!-- {{#link-to 'users.new' tagName='li'}}
-    <a href>new</a>
-  {{/link-to}} --}}
-</ul>
+<div class="btn-group btn-group-justified">
+  {{#link-to 'settled-accounts' class="btn btn-default"}}Settled accounts{{/link-to}}
+  {{#link-to 'user-accounts' class="btn btn-default"}}Edit users{{/link-to}}
+</div>
+<br>
+<div class="btn-group btn-group-justified">
+  {{#link-to 'login' class="btn btn-default"}}Login{{/link-to}}
+  {{#link-to 'index' class="btn btn-default"}}Home{{/link-to}}
+</div>
