@@ -14,6 +14,7 @@ Router.map(function() {
       this.route('auth', { path: ':user_id/auth' });
     });
   });
+  this.route('options');
 });
 
 export default Router;
