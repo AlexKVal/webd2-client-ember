@@ -13,7 +13,7 @@
  * Custom styling
  */
 body {
-  padding-top: 50px;
+  padding-top: 60px;
 }
 
 .navbar-header > .pull-right {
@@ -22,7 +22,7 @@ body {
 
 @media (max-width: 435px) {
   body {
-    padding-top: 30px;
+    padding-top: 35px;
   }
 
   .navbar {
