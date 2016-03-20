@@ -43,6 +43,6 @@
     "loader.js": "^4.0.0"
   },
   "dependencies": {
-    "ember-simple-auth": "^1.0.1"
+    "ember-simple-auth": "1.0.1"
   }
 }
