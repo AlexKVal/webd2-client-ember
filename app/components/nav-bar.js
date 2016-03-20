@@ -6,13 +6,13 @@ export default Component.extend({
   session: service(),
   router: service('-routing'),
 
-  isLoginRoute: computed('router.currentRouteName', function() {
-    return this.get('router.currentRouteName').match('login');
+  isOptionsRoute: computed('router.currentRouteName', function() {
+    return this.get('router.currentRouteName').match('options');
   }),
 
   actions: {
-    toLoginRoute() {
-      this.get('router').transitionTo('login');
+    toRoute(routeName) {
+      this.get('router').transitionTo(routeName);
     },
 
     logout() {
