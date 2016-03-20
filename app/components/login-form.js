@@ -9,7 +9,21 @@ export default Component.extend({
   actions: {
     authenticate(id, password) {
       this.get('session').authenticate('authenticator:jwt', { id, password })
-      .catch((reason) => this.get('flashMessages').danger(reason));
+      .catch((response) => {
+        const flash = this.get('flashMessages');
+
+        if (!Array.isArray(response.errors)) {
+          return flash.danger(response, {sticky: true});
+        }
+
+        response.errors.forEach((error) => {
+          if (error.title === 'Unauthorized') {
+            flash.danger('Wrong password');
+          } else {
+            flash.danger(error.detail, {sticky: true});
+          }
+        });
+      });
 
       this.set('password', '');
       this.$('input[type="password"]').focus();

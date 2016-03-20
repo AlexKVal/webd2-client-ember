@@ -25,10 +25,7 @@ export default BaseAuthenticator.extend({
       .then(
         (response) => run(null, resolve, response),
         (xhr) => {
-          // jsonapi-errors: BadRequestError, NotFoundError, UnauthorizedError etc
-          const json = xhr.responseJSON;
-          const detail = json && json.errors && json.errors[0].detail;
-          run(null, reject, detail || xhr.responseText); // other errors
+          run(null, reject, xhr.responseJSON || xhr.responseText);
         }
       );
     });
