@@ -43,7 +43,7 @@ body {
   }
 
   /* list-group (user-accounts) */
-  .list-group-item {
+  .list-group-item.u-condensed {
     padding: 2px 8px;
   }
 }

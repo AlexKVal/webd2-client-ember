@@ -1,6 +1,6 @@
 <div class="list-group">
   {{#each model as |user|}}
-    {{#link-to 'user-accounts.edit' user class="list-group-item"}}
+    {{#link-to 'user-accounts.edit' user class="list-group-item u-condensed"}}
       <div class="row">
         <div class="col-xs-8"><strong>{{user.name}}</strong></div>
         <div class="col-xs-4 text-right"><small><em>{{user.password}}</em></small></div>
