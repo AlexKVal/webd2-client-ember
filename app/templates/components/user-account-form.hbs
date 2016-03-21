@@ -1,0 +1,45 @@
+<div class="col-sm-6">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <form {{action 'save' model on='submit'}}>
+        <div class="form-horizontal">
+          <div class="form-group">
+            <label for="userRights" class="col-sm-3 control-label">Rights</label>
+            <div class="col-sm-9">
+              <input value={{model.rights}} readonly type="text" class="form-control" id="userRights">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="userGroup" class="col-sm-3 control-label">Group</label>
+            <div class="col-sm-9">
+              <select id="userGroup" class="form-control">
+                <option value={{model.userGroup.id}} selected>{{model.userGroup.name}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="userName" class="col-sm-3 control-label">Name</label>
+            <div class="col-sm-9">
+              {{input value=model.name type="text" class="form-control" id="userName"}}
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="userPass" class="col-sm-3 control-label">Password</label>
+            <div class="col-sm-9">
+              {{input value=model.password type="text" class="form-control" id="userPass" aria-describedby="hbPassword"}}
+              <span id="hbPassword" class="help-block">numbers and cyrillic only</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-9">
+              <button {{action 'cancel'}} type="button" class="btn btn-info">Cancel</button>
+              <button type="submit" disabled={{is-not model.hasDirtyAttributes}}
+                class="btn {{if model.hasDirtyAttributes 'btn-success' 'btn-default'}} pull-right"
+              >Save</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
