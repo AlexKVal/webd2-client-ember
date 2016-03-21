@@ -20,13 +20,13 @@
           <div class="form-group">
             <label for="userName" class="col-sm-3 control-label">Name</label>
             <div class="col-sm-9">
-              {{input value=model.name maxlength=31 type="text" class="form-control" id="userName"}}
+              {{input value=model.name maxlength=31 autocomplete="off" type="text" class="form-control" id="userName"}}
             </div>
           </div>
           <div class="form-group">
             <label for="userPass" class="col-sm-3 control-label">Password</label>
             <div class="col-sm-9">
-              {{input value=model.password maxlength=7 type="text" class="form-control" id="userPass" aria-describedby="hbPassword"}}
+              {{input value=model.password maxlength=7 autocomplete="off" type="text" class="form-control" id="userPass" aria-describedby="hbPassword"}}
               <span id="hbPassword" class="help-block">Stations allow numbers and cyrillic characters only</span>
             </div>
           </div>
