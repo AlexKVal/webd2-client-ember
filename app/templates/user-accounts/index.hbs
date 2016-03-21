@@ -2,12 +2,12 @@
   {{#each model as |user|}}
     {{#link-to 'user-accounts.edit' user class="list-group-item"}}
       <div class="row">
-        <div class="col-xs-8"><strong><small>{{user.name}}</small></strong></div>
+        <div class="col-xs-8"><strong>{{user.name}}</strong></div>
         <div class="col-xs-4 text-right"><small><em>{{user.password}}</em></small></div>
       </div>
       <div class="row">
-        <div class="col-xs-6"><small>{{user.rights}}</small></div>
-        <div class="col-xs-6 text-right"><small>{{user.userGroup.name}}</small></div>
+        <div class="col-xs-6">{{user.rights}}</div>
+        <div class="col-xs-6 text-right">{{user.userGroup.name}}</div>
       </div>
     {{/link-to}}
   {{/each}}

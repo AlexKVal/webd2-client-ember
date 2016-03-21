@@ -21,6 +21,7 @@ body {
 }
 
 @media (max-width: 435px) {
+  /* nav-bar */
   body {
     padding-top: 35px;
   }
@@ -39,5 +40,10 @@ body {
   .navbar-btn.btn-sm {
     margin-top: 0;
     margin-bottom: 0;
+  }
+
+  /* list-group (user-accounts) */
+  .list-group-item {
+    padding: 2px 8px;
   }
 }
