@@ -12,9 +12,8 @@ export default Ember.Component.extend({
 
     save() {
       this.model.save()
-      .catch((error) => {
-        this.get('flashMessages').danger(messageFromError(error), {sticky: true});
-      });
+      .then(() => this.get('flashMessages').success('Saved'))
+      .catch((error) => this.get('flashMessages').danger(messageFromError(error), {sticky: true}));
     }
   }
 });
