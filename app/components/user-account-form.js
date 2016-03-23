@@ -15,7 +15,6 @@ export default Ember.Component.extend({
 
     save() {
       this.model.save()
-      .then(() => this.get('store').findAll('user-group')) // update login models
       .then(() => this.get('flashMessages').success('Saved'))
       .catch((error) => this.get('flashMessages').danger(messageFromError(error), {sticky: true}));
     }

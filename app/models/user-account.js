@@ -4,5 +4,13 @@ export default DS.Model.extend({
   name: DS.attr('string'),
   password: DS.attr('string'),
   rights: DS.attr(),
-  userGroup: DS.belongsTo('userGroup')
+  userGroup: DS.belongsTo('userGroup'),
+
+  _updateLoginModels() {
+    this.get('store').findAll('user-group');
+  },
+
+  didUpdate() {
+    this._updateLoginModels();
+  }
 });
