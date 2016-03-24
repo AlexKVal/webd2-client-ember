@@ -12,5 +12,9 @@ export default DS.Model.extend({
 
   didUpdate() {
     this._updateLoginModels();
+  },
+
+  didCreate() {
+    this._updateLoginModels();
   }
 });
