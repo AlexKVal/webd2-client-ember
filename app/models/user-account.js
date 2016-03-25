@@ -16,5 +16,9 @@ export default DS.Model.extend({
 
   didCreate() {
     this._updateLoginModels();
+  },
+
+  didDelete() {
+    this._updateLoginModels();
   }
 });
