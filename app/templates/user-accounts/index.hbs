@@ -1,5 +1,23 @@
 <div class="list-group">
-  {{#each model as |user|}}
+  <div class="list-group-item row u-condensed">
+    {{#if deleted}}
+      {{#link-to 'user-accounts' (query-params deleted=false)
+        class="btn btn-success btn-xs"}}Active users{{/link-to}}
+    {{else}}
+      {{#link-to 'user-accounts' (query-params deleted=true)
+        class="btn btn-info btn-xs"}}Deleted users{{/link-to}}
+    {{/if}}
+
+    {{#if adminsOnly}}
+      {{#link-to 'user-accounts' (query-params adminsOnly=false)
+        class="btn btn-success btn-xs"}}All users{{/link-to}}
+    {{else}}
+      {{#link-to 'user-accounts' (query-params adminsOnly=true)
+        class="btn btn-info btn-xs"}}Admins only{{/link-to}}
+    {{/if}}
+  </div>
+
+  {{#each filteredUsers as |user|}}
     <div class="list-group-item row u-condensed">
       <div class="row">
         {{#link-to 'user-accounts.edit' user tagName="div" class="col-xs-11 u-no-lr-padding"}}
