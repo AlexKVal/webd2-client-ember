@@ -1,17 +1,17 @@
 <div class="list-group">
   {{#each model as |user|}}
-    {{#link-to 'user-accounts.edit' user class="list-group-item row u-condensed"}}
+    <div class="list-group-item row u-condensed">
       <div class="row">
-        <div class="col-xs-11 u-no-lr-padding">
+        {{#link-to 'user-accounts.edit' user tagName="div" class="col-xs-11 u-no-lr-padding"}}
           <div class="col-xs-8"><strong>{{user.name}}</strong></div>
           <div class="col-xs-4 text-right"><small><em>{{user.password}}</em></small></div>
           <div class="col-xs-6">{{user.rights}}</div>
           <div class="col-xs-6 text-right">{{user.userGroup.name}}</div>
-        </div>
+        {{/link-to}}
         <div class="col-xs-1 u-no-lr-padding">
-          <button class="btn btn-danger btn-xs btn-vert">&times;</button>
+          <button {{action 'delete' user}} class="btn btn-danger btn-xs btn-vert">&times;</button>
         </div>
       </div>
-    {{/link-to}}
+    </div>
   {{/each}}
 </div>
