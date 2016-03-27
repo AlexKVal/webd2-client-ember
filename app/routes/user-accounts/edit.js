@@ -1,6 +1,6 @@
-import SuperAdminsOnly from 'webd2-client-ember/routes/authz-super-admins-only';
+import Ember from 'ember';
 
-export default SuperAdminsOnly.extend({
+export default Ember.Route.extend({
   model(params) {
     return this.store.findRecord('user-account', params.id);
   },
