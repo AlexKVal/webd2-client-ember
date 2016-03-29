@@ -5,12 +5,11 @@ export default Ember.Controller.extend({
   deleted: false,
   adminsOnly: false,
 
-  filteredUsers: Ember.computed('adminsOnly', 'model', function() {
-    const userAccounts = this.get('model');
-    const category = this.get('adminsOnly');
+  filteredUsers: Ember.computed('model.@each.hide', 'deleted', 'adminsOnly', function() {
+    const userAccounts = this.get('model').filterBy('hide', this.get('deleted'));
 
-    if (category) {
-      return userAccounts.filterBy('rights', "3");
+    if (this.get('adminsOnly')) {
+      return userAccounts.filterBy('rights', 3);
     } else {
       return userAccounts;
     }

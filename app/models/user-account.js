@@ -5,6 +5,7 @@ export default DS.Model.extend({
   password: DS.attr('string'),
   rights: DS.attr(),
   userGroup: DS.belongsTo('userGroup'),
+  hide: DS.attr('boolean'),
 
   _updateLoginModels() {
     this.get('store').findAll('user-group');
@@ -15,10 +16,6 @@ export default DS.Model.extend({
   },
 
   didCreate() {
-    this._updateLoginModels();
-  },
-
-  didDelete() {
     this._updateLoginModels();
   }
 });

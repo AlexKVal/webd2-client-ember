@@ -4,17 +4,23 @@ import messageFromError from 'webd2-client-ember/utils/message-from-error';
 export default Ember.Route.extend({
   flashMessages: Ember.inject.service(),
 
-  queryParams: {
-    deleted: { refreshModel: true }
+  model() {
+    return this.store.findAll('user-account');
   },
-  model(params) {
-    return this.store.query('user-account', params);
+
+  _flashError(error) {
+    this.get('flashMessages').danger(messageFromError(error), {sticky: true});
   },
 
   actions: {
     delete(user) {
-      user.destroyRecord()
-      .catch((error) => this.get('flashMessages').danger(messageFromError(error), {sticky: true}));
+      user.set('hide', true);
+      user.save().catch((error) => this._flashError(error));
+    },
+
+    undelete(user) {
+      user.set('hide', false);
+      user.save().catch((error) => this._flashError(error));
     }
   }
 });

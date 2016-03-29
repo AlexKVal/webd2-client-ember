@@ -5,7 +5,7 @@
         class="btn btn-success btn-xs"}}Active users{{/link-to}}
     {{else}}
       {{#link-to 'user-accounts' (query-params deleted=true)
-        class="btn btn-info btn-xs"}}Deleted users{{/link-to}}
+        class="btn btn-default btn-xs"}}Deleted users{{/link-to}}
     {{/if}}
 
     {{#if adminsOnly}}
@@ -13,7 +13,7 @@
         class="btn btn-success btn-xs"}}All users{{/link-to}}
     {{else}}
       {{#link-to 'user-accounts' (query-params adminsOnly=true)
-        class="btn btn-info btn-xs"}}Admins only{{/link-to}}
+        class="btn btn-default btn-xs"}}Admins only{{/link-to}}
     {{/if}}
   </div>
 
@@ -27,7 +27,11 @@
           <div class="col-xs-6 text-right">{{user.userGroup.name}}</div>
         {{/link-to}}
         <div class="col-xs-1 u-no-lr-padding">
-          <button {{action 'delete' user}} class="btn btn-danger btn-xs btn-vert">&times;</button>
+          {{#if deleted}}
+            <button {{action 'undelete' user}} class="btn btn-success btn-xs btn-vert">+</button>
+          {{else}}
+            <button {{action 'delete' user}} class="btn btn-danger btn-xs btn-vert">&times;</button>
+          {{/if}}
         </div>
       </div>
     </div>
