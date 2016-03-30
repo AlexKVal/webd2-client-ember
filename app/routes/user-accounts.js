@@ -21,6 +21,7 @@ export default SuperAdminsOnly.extend({
       user.set('hide', false);
       user.save()
       .then(() => this.get('flashMessages').success(`${user.get('name')} has been restored`))
+      .then(() => this.transitionTo('user-accounts.index', {queryParams: {deleted: false}}))
       .catch((error) => this._flashError(error));
     }
   }
