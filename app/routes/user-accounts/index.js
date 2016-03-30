@@ -15,12 +15,16 @@ export default Ember.Route.extend({
   actions: {
     delete(user) {
       user.set('hide', true);
-      user.save().catch((error) => this._flashError(error));
+      user.save()
+      .then(() => this.get('flashMessages').success(`${user.get('name')} has been deleted`))
+      .catch((error) => this._flashError(error));
     },
 
     undelete(user) {
       user.set('hide', false);
-      user.save().catch((error) => this._flashError(error));
+      user.save()
+      .then(() => this.get('flashMessages').success(`${user.get('name')} has been restored`))
+      .catch((error) => this._flashError(error));
     }
   }
 });
