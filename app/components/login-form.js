@@ -26,7 +26,6 @@ export default Component.extend({
       });
 
       this.set('password', '');
-      this.$('input[type="password"]').focus();
     }
   }
 });
