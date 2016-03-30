@@ -1,5 +1,8 @@
 <div class="list-group">
   <div class="list-group-item row u-condensed">
+    {{#link-to 'user-accounts.new'
+      class="btn btn-info btn-xs"}}Add a user{{/link-to}}
+
     {{#if deleted}}
       {{#link-to 'user-accounts' (query-params deleted=false)
         class="btn btn-success btn-xs"}}Active users{{/link-to}}
