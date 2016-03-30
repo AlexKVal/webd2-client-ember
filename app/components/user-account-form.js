@@ -17,6 +17,10 @@ export default Ember.Component.extend({
       this.model.save()
       .then(() => this.get('flashMessages').success('Saved'))
       .catch((error) => this.get('flashMessages').danger(messageFromError(error), {sticky: true}));
+    },
+
+    undelete(userAccount) {
+      this.get('onUndelete')(userAccount);
     }
   }
 });
