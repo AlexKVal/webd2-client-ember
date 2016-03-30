@@ -6,13 +6,14 @@
           <div class="form-group">
             <label for="userRights" class="col-sm-3 control-label">Rights</label>
             <div class="col-sm-9">
-              <input value={{model.rights}} readonly type="text" class="form-control" id="userRights">
+              <input value={{model.rights}} readonly disabled=model.hide
+                type="text" class="form-control" id="userRights">
             </div>
           </div>
           <div class="form-group">
             <label for="userGroup" class="col-sm-3 control-label">Group</label>
             <div class="col-sm-9">
-              <select id="userGroup" class="form-control">
+              <select disabled=model.hide id="userGroup" class="form-control">
                 <option value={{model.userGroup.id}} selected>{{model.userGroup.name}}</option>
               </select>
             </div>
