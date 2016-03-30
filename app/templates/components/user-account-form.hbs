@@ -42,10 +42,11 @@
                 <button {{action "undelete" model}} type="button"
                   class="btn btn-success pull-right"
                 >Restore</button>
+              {{else if model.hasDirtyAttributes}}
+                <button type="submit" class="btn btn-success pull-right">Save</button>
               {{else}}
-                <button type="submit" disabled={{is-not model.hasDirtyAttributes}}
-                  class="btn {{if model.hasDirtyAttributes 'btn-success' 'btn-default'}} pull-right"
-                >Save</button>
+                {{#link-to 'user-accounts.index' (query-params deleted=false)
+                  class="btn btn-info pull-right"}}All Users{{/link-to}}
               {{/if}}
             </div>
           </div>
