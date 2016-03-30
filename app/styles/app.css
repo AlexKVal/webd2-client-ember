@@ -20,6 +20,12 @@ body {
   margin-right: 5px;
 }
 
+.flash-container {
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+}
+
 /* btn btn-<type> btn-xs btn-vert */
 .btn-vert {
   font-size: 22px;
