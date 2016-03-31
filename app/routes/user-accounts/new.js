@@ -2,13 +2,10 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model() {
-    return this.store.createRecord('user-account');
-  },
-
-  afterModel(model) {
-    model.setProperties({
+    // TODO: default values
+    return this.store.createRecord('user-account', {
       rights: '6', // some default rights
-      // group: some default group
+      userGroup: this.store.peekRecord('user-group', 5)
     });
   }
 });
