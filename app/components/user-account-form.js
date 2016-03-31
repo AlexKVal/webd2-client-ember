@@ -5,7 +5,6 @@ const { service } = Ember.inject;
 
 export default Ember.Component.extend({
   flashMessages: service(),
-  store: service(),
 
   actions: {
     cancel() {

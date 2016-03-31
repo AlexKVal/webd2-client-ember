@@ -5,6 +5,10 @@ import messageFromError from 'webd2-client-ember/utils/message-from-error';
 export default SuperAdminsOnly.extend({
   flashMessages: Ember.inject.service(),
 
+  model() {
+    return this.store.findAll('user-account');
+  },
+
   _flashError(error) {
     this.get('flashMessages').danger(messageFromError(error), {sticky: true});
   },
