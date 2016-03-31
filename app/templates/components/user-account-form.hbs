@@ -4,10 +4,18 @@
       <form {{action 'save' model on='submit'}}>
         <div class="form-horizontal">
           <div class="form-group">
-            <label for="userRights" class="col-sm-3 control-label">Rights</label>
+            <label class="col-sm-3 control-label">Rights</label>
             <div class="col-sm-9">
-              <input value={{model.rights}} readonly disabled=model.hide
-                type="text" class="form-control" id="userRights">
+              {{#power-select
+                options=rights
+                selected=model.rights
+                onchange=(action (mut model.rights))
+                disabled=model.hide
+                searchEnabled=false
+                as |rights|
+              }}
+                {{rights}}
+              {{/power-select}}
             </div>
           </div>
           <div class="form-group">
