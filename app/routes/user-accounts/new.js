@@ -4,8 +4,13 @@ export default Ember.Route.extend({
   model() {
     // TODO: default values
     return this.store.createRecord('user-account', {
-      rights: '6', // some default rights
-      userGroup: this.store.peekRecord('user-group', 5)
+      rights: '6' // some default rights
     });
+  },
+
+  setupController: function(controller, model) {
+    this._super(controller, model);
+
+    controller.set('userGroups', this.store.peekAll('user-group'));
   }
 });
