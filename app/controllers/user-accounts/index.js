@@ -13,5 +13,8 @@ export default Ember.Controller.extend({
     } else {
       return userAccounts;
     }
-  })
+  }),
+
+  sortedUsers: Ember.computed.sort('filteredUsers', 'sortDefinition'),
+  sortDefinition: ['userGroup.name', 'name']
 });

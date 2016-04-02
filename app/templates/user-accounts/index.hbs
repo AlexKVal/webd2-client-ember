@@ -20,7 +20,7 @@
     {{/if}}
   </div>
 
-  {{#each filteredUsers as |user|}}
+  {{#each sortedUsers as |user|}}
     <div class="list-group-item row u-condensed">
       <div class="row">
         {{#link-to 'user-accounts.edit' user tagName="div" class="col-xs-11 u-no-lr-padding"}}
