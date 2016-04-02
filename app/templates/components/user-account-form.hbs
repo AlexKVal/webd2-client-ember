@@ -58,7 +58,7 @@
                 <button {{action "undelete" model}} type="button"
                   class="btn btn-success pull-right"
                 >Restore</button>
-              {{else if model.hasDirtyAttributes}}
+              {{else if hasUnsavedChanges}}
                 <button type="submit" class="btn btn-success pull-right">Save</button>
               {{else}}
                 {{#link-to 'user-accounts.index' (query-params deleted=false)
