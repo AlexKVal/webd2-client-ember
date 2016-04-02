@@ -18,7 +18,10 @@ export default SuperAdminsOnly.extend({
       user.set('hide', true);
       user.save()
       .then(() => this.get('flashMessages').success(`${user.get('name')} has been deleted`))
-      .catch((error) => this._flashError(error));
+      .catch((error) => {
+        this._flashError(error);
+        user.rollbackAttributes();
+      });
     },
 
     undelete(user) {
@@ -26,7 +29,10 @@ export default SuperAdminsOnly.extend({
       user.save()
       .then(() => this.get('flashMessages').success(`${user.get('name')} has been restored`))
       .then(() => this.transitionTo('user-accounts.index', {queryParams: {deleted: false}}))
-      .catch((error) => this._flashError(error));
+      .catch((error) => {
+        this._flashError(error);
+        user.rollbackAttributes();
+      });
     }
   }
 });
