@@ -1,11 +1,14 @@
 import DS from 'ember-data';
 
+const {attr, belongsTo} = DS;
+
 export default DS.Model.extend({
-  name: DS.attr('string'),
-  password: DS.attr('string'),
-  rights: DS.attr('number'),
-  userGroup: DS.belongsTo('userGroup'),
-  hide: DS.attr('boolean', { defaultValue: false }),
+  name: attr('string'),
+  password: attr('string'),
+  cardcode: attr('string'),
+  rights: attr('number'),
+  userGroup: belongsTo('userGroup'),
+  hide: attr('boolean', { defaultValue: false }),
 
   _updateLoginModels() {
     this.get('store').findAll('user-group');

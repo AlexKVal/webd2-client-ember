@@ -3,6 +3,7 @@
     <div class="panel-body">
       <form {{action 'save' model on='submit'}}>
         <div class="form-horizontal">
+
           <div class="form-group">
             <label class="col-sm-3 control-label">Rights</label>
             <div class="col-sm-9">
@@ -18,6 +19,7 @@
               {{/power-select}}
             </div>
           </div>
+
           <div class="form-group">
             <label class="col-sm-3 control-label">Group</label>
             <div class="col-sm-9">
@@ -33,6 +35,7 @@
               {{/power-select}}
             </div>
           </div>
+
           <div class="form-group">
             <label for="userName" class="col-sm-3 control-label">Name</label>
             <div class="col-sm-9">
@@ -50,6 +53,16 @@
               <span id="hbPassword" class="help-block">Stations allow numbers and cyrillic characters only</span>
             </div>
           </div>
+
+          <div class="form-group">
+            <label for="cardCode" class="col-sm-3 control-label">Card code</label>
+            <div class="col-sm-9">
+              {{input value=model.cardcode maxlength=22 disabled=model.hide
+                placeholder="<no card code>" autocomplete="off" type="text"
+                class="form-control" id="cardCode"}}
+            </div>
+          </div>
+
           <div class="form-group">
             <div class="col-sm-offset-3 col-sm-9">
               <button {{action 'cancel'}} type="button" class="btn btn-info">Cancel</button>
@@ -66,6 +79,7 @@
               {{/if}}
             </div>
           </div>
+
         </div>
       </form>
     </div>
