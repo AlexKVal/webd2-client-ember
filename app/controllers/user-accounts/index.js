@@ -9,7 +9,7 @@ export default Ember.Controller.extend({
     const userAccounts = this.get('model').filterBy('hide', this.get('deleted'));
 
     if (this.get('adminsOnly')) {
-      return userAccounts.filterBy('rights', "3");
+      return userAccounts.filterBy('rights', 3);
     } else {
       return userAccounts;
     }
