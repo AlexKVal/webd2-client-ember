@@ -7,7 +7,7 @@ export default DS.Model.extend({
   password: attr('string'),
   cardcode: attr('string'),
   rights: attr('number'),
-  userGroup: belongsTo('userGroup'),
+  userGroup: belongsTo('userGroup', {async: false}),
   hide: attr('boolean', { defaultValue: false }),
 
   _updateLoginModels() {
