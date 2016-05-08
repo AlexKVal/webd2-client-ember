@@ -6,7 +6,11 @@ export default SuperAdminsOnly.extend({
   flashMessages: Ember.inject.service(),
 
   model() {
-    return this.store.findAll('user-account');
+    // userGroup needs to be sideloaded.
+    // for this to be done:
+    // userGroup: {async: false} in the model
+    // and query(... { related: true })
+    return this.store.query('user-account', { related: true });
   },
 
   _flashError(error) {
