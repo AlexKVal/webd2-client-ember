@@ -3,6 +3,6 @@ import UnauthenticatedRouteMixin from 'ember-simple-auth/mixins/unauthenticated-
 
 export default Ember.Route.extend(UnauthenticatedRouteMixin, {
   model() {
-    return this.store.findAll('user-group');
+    return this.store.query('user-group', { related: true });
   }
 });
