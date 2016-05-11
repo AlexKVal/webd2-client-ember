@@ -14,6 +14,15 @@
           </div>
 
           <div class="form-group">
+            <label for="comment" class="col-sm-3 control-label">Comment</label>
+            <div class="col-sm-9">
+              {{input value=model.info maxlength=41 disabled=model.hide
+                placeholder="additional info" autocomplete="off" type="text"
+                class="form-control" id="comment"}}
+            </div>
+          </div>
+
+          <div class="form-group">
             <div class="col-sm-offset-3 col-sm-9">
               <button {{action 'cancel'}} type="button" class="btn btn-info">Cancel</button>
 

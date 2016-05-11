@@ -1,7 +1,10 @@
 import DS from 'ember-data';
 
+const { attr, hasMany } = DS;
+
 export default DS.Model.extend({
-  name: DS.attr('string'),
-  hide: DS.attr('boolean', { defaultValue: false }),
-  users: DS.hasMany('user')
+  name: attr('string'),
+  hide: attr('boolean', { defaultValue: false }),
+  info: attr('string'),
+  users: hasMany('user')
 });
