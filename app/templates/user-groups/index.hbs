@@ -1,18 +1,18 @@
 <div class="list-group">
   <div class="list-group-item row u-condensed">
     {{#link-to 'user-groups.new'
-      class="btn btn-info btn-xs"}}Add a group{{/link-to}}
+      class="btn btn-info btn-xs"}}New{{/link-to}}
 
     {{#if deleted}}
       {{#link-to 'user-groups' (query-params deleted=false)
-        class="btn btn-success btn-xs"}}Active groups{{/link-to}}
+        class="btn btn-success btn-xs"}}Active{{/link-to}}
     {{else}}
       {{#link-to 'user-groups' (query-params deleted=true)
-        class="btn btn-default btn-xs"}}Deleted groups{{/link-to}}
+        class="btn btn-default btn-xs"}}Deleted{{/link-to}}
     {{/if}}
   </div>
 
-  {{#each model as |group|}}
+  {{#each filteredUnits as |group|}}
     <div class="list-group-item row u-condensed">
       <div class="row">
         {{#link-to 'user-groups.edit' group tagName="div" class="col-xs-11 u-no-lr-padding"}}

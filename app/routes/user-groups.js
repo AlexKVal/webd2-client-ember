@@ -6,7 +6,7 @@ export default SuperAdminsOnly.extend({
   flashMessages: Ember.inject.service(),
 
   model() {
-    return this.store.query('user-group', {related: true});
+    return this.store.query('user-group', {related: true, order: 'name'});
   },
 
   _flashError(error) {
@@ -14,24 +14,24 @@ export default SuperAdminsOnly.extend({
   },
 
   actions: {
-    delete(userGroup) {
-      userGroup.set('hide', true);
-      userGroup.save()
-      .then(() => this.get('flashMessages').success(`${userGroup.get('name')} has been deleted`))
+    delete(unit) {
+      unit.set('hide', true);
+      unit.save()
+      .then(() => this.get('flashMessages').success(`${unit.get('name')} has been deleted`))
       .catch((error) => {
         this._flashError(error);
-        userGroup.rollbackAttributes();
+        unit.rollbackAttributes();
       });
     },
 
-    undelete(userGroup) {
-      userGroup.set('hide', false);
-      userGroup.save()
-      .then(() => this.get('flashMessages').success(`${userGroup.get('name')} has been restored`))
+    undelete(unit) {
+      unit.set('hide', false);
+      unit.save()
+      .then(() => this.get('flashMessages').success(`${unit.get('name')} has been restored`))
       .then(() => this.transitionTo('user-groups.index', {queryParams: {deleted: false}}))
       .catch((error) => {
         this._flashError(error);
-        userGroup.rollbackAttributes();
+        unit.rollbackAttributes();
       });
     }
   }
