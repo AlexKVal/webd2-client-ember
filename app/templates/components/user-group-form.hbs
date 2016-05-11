@@ -1,0 +1,51 @@
+<div class="col-sm-6">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <form {{action 'save' model on='submit'}}>
+        <div class="form-horizontal">
+
+          <div class="form-group">
+            <label for="name" class="col-sm-3 control-label">Name</label>
+            <div class="col-sm-9">
+              {{input value=model.name maxlength=31 disabled=model.hide
+                placeholder="a name" autocomplete="off" type="text"
+                class="form-control" id="name"}}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="comment" class="col-sm-3 control-label">Comment</label>
+            <div class="col-sm-9">
+              {{input value=model.info maxlength=41 disabled=model.hide
+                placeholder="additional info" autocomplete="off" type="text"
+                class="form-control" id="comment"}}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-9">
+              <button {{action 'cancel'}} type="button" class="btn btn-info">Cancel</button>
+
+              {{#unless model.hide}}
+                {{#link-to 'user-accounts' (query-params group=model.id)
+                  class="btn btn-primary"}}Users{{/link-to}}
+              {{/unless}}
+
+              {{#if model.hide}}
+                <button {{action "undelete" model}} type="button"
+                  class="btn btn-success pull-right"
+                >Restore</button>
+              {{else if hasUnsavedChanges}}
+                <button type="submit" class="btn btn-success pull-right">Save</button>
+              {{else}}
+                {{#link-to 'user-groups.index' (query-params deleted=false)
+                  class="btn btn-info pull-right"}}List{{/link-to}}
+              {{/if}}
+            </div>
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

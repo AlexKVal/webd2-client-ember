@@ -1,0 +1,33 @@
+<div class="list-group">
+  <div class="list-group-item row u-condensed">
+    {{#link-to 'user-groups.new'
+      class="btn btn-info btn-xs"}}New{{/link-to}}
+
+    {{#if deleted}}
+      {{#link-to 'user-groups' (query-params deleted=false)
+        class="btn btn-success btn-xs"}}Active{{/link-to}}
+    {{else}}
+      {{#link-to 'user-groups' (query-params deleted=true)
+        class="btn btn-default btn-xs"}}Deleted{{/link-to}}
+    {{/if}}
+  </div>
+
+  {{#each sortedUnits as |group|}}
+    <div class="list-group-item row u-condensed">
+      <div class="row">
+        {{#link-to 'user-groups.edit' group tagName="div" class="col-xs-11 u-no-lr-padding"}}
+          <div class="col-xs-8"><strong>{{group.name}}</strong></div>
+          <div class="col-xs-4 text-right">{{group.users.length}}</div>
+          <div class="col-xs-12"><small><em>{{group.info}}</em></small></div>
+        {{/link-to}}
+        <div class="col-xs-1 u-no-lr-padding">
+          {{#if deleted}}
+            <button {{action 'undelete' group}} class="btn btn-success btn-xs btn-vert">+</button>
+          {{else}}
+            <button {{action 'delete' group}} class="btn btn-danger btn-xs btn-vert">&times;</button>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</div>

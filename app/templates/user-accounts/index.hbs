@@ -1,19 +1,22 @@
 <div class="list-group">
   <div class="list-group-item row u-condensed">
     {{#link-to 'user-accounts.new'
-      class="btn btn-info btn-xs"}}Add a user{{/link-to}}
+      class="btn btn-info btn-xs"}}New{{/link-to}}
 
     {{#if deleted}}
       {{#link-to 'user-accounts' (query-params deleted=false)
-        class="btn btn-success btn-xs"}}Active users{{/link-to}}
+        class="btn btn-success btn-xs"}}Active{{/link-to}}
     {{else}}
       {{#link-to 'user-accounts' (query-params deleted=true)
-        class="btn btn-default btn-xs"}}Deleted users{{/link-to}}
+        class="btn btn-default btn-xs"}}Deleted{{/link-to}}
     {{/if}}
 
-    {{#if adminsOnly}}
+    {{#if group}}
+      {{#link-to 'user-accounts' (query-params group=null)
+        class="btn btn-success btn-xs"}}All{{/link-to}}
+    {{else if adminsOnly}}
       {{#link-to 'user-accounts' (query-params adminsOnly=false)
-        class="btn btn-success btn-xs"}}All users{{/link-to}}
+        class="btn btn-success btn-xs"}}All{{/link-to}}
     {{else}}
       {{#link-to 'user-accounts' (query-params adminsOnly=true)
         class="btn btn-default btn-xs"}}Admins only{{/link-to}}
