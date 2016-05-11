@@ -1,12 +1,19 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  queryParams: ['deleted', 'adminsOnly'],
+  queryParams: ['deleted', 'adminsOnly', 'group'],
   deleted: false,
   adminsOnly: false,
+  group: null,
 
-  filteredUsers: Ember.computed('model.@each.hide', 'deleted', 'adminsOnly', function() {
-    const userAccounts = this.get('model').filterBy('hide', this.get('deleted'));
+
+  filteredUsers: Ember.computed('model.@each.hide', 'deleted', 'adminsOnly', 'group', function() {
+    let userAccounts = this.get('model').filterBy('hide', this.get('deleted'));
+
+    const group = this.get('group');
+    if (group) {
+      userAccounts = userAccounts.filterBy('userGroup.id', group);
+    }
 
     if (this.get('adminsOnly')) {
       return userAccounts.filterBy('rights', 3);

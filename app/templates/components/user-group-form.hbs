@@ -26,6 +26,11 @@
             <div class="col-sm-offset-3 col-sm-9">
               <button {{action 'cancel'}} type="button" class="btn btn-info">Cancel</button>
 
+              {{#unless model.hide}}
+                {{#link-to 'user-accounts' (query-params group=model.id)
+                  class="btn btn-primary"}}Users{{/link-to}}
+              {{/unless}}
+
               {{#if model.hide}}
                 <button {{action "undelete" model}} type="button"
                   class="btn btn-success pull-right"
