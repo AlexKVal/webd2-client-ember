@@ -17,6 +17,7 @@ Router.map(function() {
   });
   this.route('options');
   this.route('settled-accounts');
+  this.route('user-groups');
 });
 
 export default Router;
