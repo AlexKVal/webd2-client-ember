@@ -21,6 +21,7 @@ export default Ember.Component.extend({
   },
 
   hasUnsavedChanges: Ember.computed('model.hasDirtyAttributes', 'model.userGroup', function() {
+    // here go validations
     if (this.get('previousUserGroup.id') !== this.get('model.userGroup.id')) {
       return true;
     }

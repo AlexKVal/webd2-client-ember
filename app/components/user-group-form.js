@@ -6,6 +6,11 @@ const { service } = Ember.inject;
 export default Ember.Component.extend({
   flashMessages: service(),
 
+  hasUnsavedChanges: Ember.computed('model.hasDirtyAttributes', function() {
+    // here go validations
+    return this.get('model.hasDirtyAttributes');
+  }),
+
   actions: {
     cancel() {
       this.model.rollbackAttributes();
