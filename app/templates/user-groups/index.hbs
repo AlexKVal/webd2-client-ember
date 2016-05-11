@@ -23,8 +23,11 @@
         <div class="col-xs-1 u-no-lr-padding">
           {{#if deleted}}
             <button {{action 'undelete' group}} class="btn btn-success btn-xs btn-vert">+</button>
+          {{else if group.users.length}}
+            <button disabled=true class="btn btn-default btn-xs btn-vert">&times;</button>
           {{else}}
-            <button {{action 'delete' group}} class="btn btn-danger btn-xs btn-vert">&times;</button>
+            <button {{action 'delete' group}}
+              class="btn btn-danger btn-xs btn-vert">&times;</button>
           {{/if}}
         </div>
       </div>
