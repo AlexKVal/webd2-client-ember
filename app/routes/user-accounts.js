@@ -9,8 +9,8 @@ export default SuperAdminsOnly.extend({
     // userGroup needs to be sideloaded.
     // for this to be done:
     // userGroup: {async: false} in the model
-    // and query(... { related: true })
-    return this.store.query('user-account', { related: true });
+    // and query(... { includeJoined: true })
+    return this.store.query('user-account', { includeJoined: true });
   },
 
   _flashError(error) {

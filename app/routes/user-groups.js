@@ -6,7 +6,7 @@ export default SuperAdminsOnly.extend({
   flashMessages: Ember.inject.service(),
 
   model() {
-    return this.store.query('user-group', {related: true});
+    return this.store.query('user-group', {includeJoined: true});
   },
 
   _flashError(error) {
