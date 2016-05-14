@@ -6,10 +6,7 @@ export default SuperAdminsOnly.extend({
   flashMessages: Ember.inject.service(),
 
   model() {
-    // userGroup needs to be sideloaded.
-    // for this to be done:
-    // userGroup: {async: false} in the model
-    // and query(... { includeJoined: true })
+    // sideload joined relations to show them on the index/List screen
     return this.store.query('user-account', { includeJoined: true });
   },
 

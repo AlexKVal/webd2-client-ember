@@ -11,6 +11,6 @@ export default Ember.Route.extend({
   setupController: function(controller, model) {
     this._super(controller, model);
 
-    controller.set('userGroups', this.store.peekAll('user-group'));
+    controller.set('userGroups', this.store.query('user-group', {filter: {hide: false}}));
   }
 });
