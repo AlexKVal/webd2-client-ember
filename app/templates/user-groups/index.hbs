@@ -27,14 +27,14 @@
     <div class="navbar-header">
       <div class="btn-group btn-group-justified">
         {{#link-to 'user-groups.new'
-          class="btn btn-info navbar-btn"}}New{{/link-to}}
+          class="btn btn-info"}}New{{/link-to}}
 
         {{#if deleted}}
           {{#link-to 'user-groups' (query-params deleted=false)
-            class="btn btn-success navbar-btn"}}Active{{/link-to}}
+            class="btn btn-success"}}Active{{/link-to}}
         {{else}}
           {{#link-to 'user-groups' (query-params deleted=true)
-            class="btn btn-default navbar-btn"}}Deleted{{/link-to}}
+            class="btn btn-default"}}Deleted{{/link-to}}
         {{/if}}
       </div>
     </div>
