@@ -1,17 +1,4 @@
 <div class="list-group">
-  <div class="list-group-item row u-condensed">
-    {{#link-to 'user-groups.new'
-      class="btn btn-info btn-xs"}}New{{/link-to}}
-
-    {{#if deleted}}
-      {{#link-to 'user-groups' (query-params deleted=false)
-        class="btn btn-success btn-xs"}}Active{{/link-to}}
-    {{else}}
-      {{#link-to 'user-groups' (query-params deleted=true)
-        class="btn btn-default btn-xs"}}Deleted{{/link-to}}
-    {{/if}}
-  </div>
-
   {{#each sortedUnits as |group|}}
     <div class="list-group-item row u-condensed">
       <div class="row">
@@ -34,3 +21,22 @@
     </div>
   {{/each}}
 </div>
+
+<nav class="navbar navbar-fixed-bottom" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <div class="btn-group btn-group-justified">
+        {{#link-to 'user-groups.new'
+          class="btn btn-info navbar-btn"}}New{{/link-to}}
+
+        {{#if deleted}}
+          {{#link-to 'user-groups' (query-params deleted=false)
+            class="btn btn-success navbar-btn"}}Active{{/link-to}}
+        {{else}}
+          {{#link-to 'user-groups' (query-params deleted=true)
+            class="btn btn-default navbar-btn"}}Deleted{{/link-to}}
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</nav>
