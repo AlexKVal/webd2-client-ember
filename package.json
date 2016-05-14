@@ -45,6 +45,7 @@
     "loader.js": "^4.0.0"
   },
   "dependencies": {
+    "ember-power-select": "^0.10.8",
     "ember-simple-auth": "1.0.1"
   }
 }
