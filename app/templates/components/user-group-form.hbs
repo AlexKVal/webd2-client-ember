@@ -26,38 +26,30 @@
   </div>
 </div>
 
-<nav class="navbar navbar-fixed-bottom" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <div class="btn-group btn-group-justified">
-
-        <div class="btn-group" role="group">
-          <button {{action 'cancel'}} type="button" class="btn btn-info">Cancel</button>
-        </div>
-
-        {{#unless model.hide}}
-        <div class="btn-group" role="group">
-          {{#link-to 'user-accounts' (query-params group=model.id)
-            class="btn btn-primary"}}Users{{/link-to}}
-        </div>
-        {{/unless}}
-
-        <div class="btn-group" role="group">
-          {{#if model.hide}}
-            <button {{action "undelete" model}} type="button"
-              class="btn btn-success"
-            >Restore</button>
-          {{else if hasUnsavedChanges}}
-            <button type="submit" class="btn btn-success">Save</button>
-          {{else}}
-            {{#link-to 'user-groups.index' (query-params deleted=false)
-              class="btn btn-info"}}List{{/link-to}}
-          {{/if}}
-        </div>
-
-      </div>
-    </div>
+{{#nav-bar-bottom}}
+  <div class="btn-group" role="group">
+    <button {{action 'cancel'}} type="button" class="btn btn-info">Cancel</button>
   </div>
-</nav>
+
+  {{#unless model.hide}}
+  <div class="btn-group" role="group">
+    {{#link-to 'user-accounts' (query-params group=model.id)
+      class="btn btn-primary"}}Users{{/link-to}}
+  </div>
+  {{/unless}}
+
+  <div class="btn-group" role="group">
+    {{#if model.hide}}
+      <button {{action "undelete" model}} type="button"
+        class="btn btn-success"
+      >Restore</button>
+    {{else if hasUnsavedChanges}}
+      <button type="submit" class="btn btn-success">Save</button>
+    {{else}}
+      {{#link-to 'user-groups.index' (query-params deleted=false)
+        class="btn btn-info"}}List{{/link-to}}
+    {{/if}}
+  </div>
+{{/nav-bar-bottom}}
 
 </form>

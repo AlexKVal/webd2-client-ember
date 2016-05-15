@@ -20,32 +20,26 @@
   {{/each}}
 </div>
 
-<nav class="navbar navbar-fixed-bottom" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <div class="btn-group btn-group-justified">
-        {{#link-to 'user-accounts.new'
-          class="btn btn-info"}}New{{/link-to}}
+{{#nav-bar-bottom}}
+  {{#link-to 'user-accounts.new'
+    class="btn btn-info"}}New{{/link-to}}
 
-        {{#if deleted}}
-          {{#link-to 'user-accounts' (query-params deleted=false)
-            class="btn btn-success"}}Active{{/link-to}}
-        {{else}}
-          {{#link-to 'user-accounts' (query-params deleted=true)
-            class="btn btn-default"}}Deleted{{/link-to}}
-        {{/if}}
+  {{#if deleted}}
+    {{#link-to 'user-accounts' (query-params deleted=false)
+      class="btn btn-success"}}Active{{/link-to}}
+  {{else}}
+    {{#link-to 'user-accounts' (query-params deleted=true)
+      class="btn btn-default"}}Deleted{{/link-to}}
+  {{/if}}
 
-        {{#if group}}
-          {{#link-to 'user-accounts' (query-params group=null)
-            class="btn btn-success"}}All{{/link-to}}
-        {{else if adminsOnly}}
-          {{#link-to 'user-accounts' (query-params adminsOnly=false)
-            class="btn btn-success"}}All{{/link-to}}
-        {{else}}
-          {{#link-to 'user-accounts' (query-params adminsOnly=true)
-            class="btn btn-default"}}Admins only{{/link-to}}
-        {{/if}}
-      </div>
-    </div>
-  </div>
-</nav>
+  {{#if group}}
+    {{#link-to 'user-accounts' (query-params group=null)
+      class="btn btn-success"}}All{{/link-to}}
+  {{else if adminsOnly}}
+    {{#link-to 'user-accounts' (query-params adminsOnly=false)
+      class="btn btn-success"}}All{{/link-to}}
+  {{else}}
+    {{#link-to 'user-accounts' (query-params adminsOnly=true)
+      class="btn btn-default"}}Admins only{{/link-to}}
+  {{/if}}
+{{/nav-bar-bottom}}

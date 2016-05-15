@@ -22,21 +22,15 @@
   {{/each}}
 </div>
 
-<nav class="navbar navbar-fixed-bottom" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <div class="btn-group btn-group-justified">
-        {{#link-to 'user-groups.new'
-          class="btn btn-info"}}New{{/link-to}}
+{{#nav-bar-bottom}}
+  {{#link-to 'user-groups.new'
+    class="btn btn-info"}}New{{/link-to}}
 
-        {{#if deleted}}
-          {{#link-to 'user-groups' (query-params deleted=false)
-            class="btn btn-success"}}Active{{/link-to}}
-        {{else}}
-          {{#link-to 'user-groups' (query-params deleted=true)
-            class="btn btn-default"}}Deleted{{/link-to}}
-        {{/if}}
-      </div>
-    </div>
-  </div>
-</nav>
+  {{#if deleted}}
+    {{#link-to 'user-groups' (query-params deleted=false)
+      class="btn btn-success"}}Active{{/link-to}}
+  {{else}}
+    {{#link-to 'user-groups' (query-params deleted=true)
+      class="btn btn-default"}}Deleted{{/link-to}}
+  {{/if}}
+{{/nav-bar-bottom}}
