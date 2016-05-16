@@ -7,8 +7,6 @@ export default Ember.Route.extend(UnauthenticatedRouteMixin, {
       includeJoined: true,
       filter: {hide: false}
     })
-    .then((groups) => {
-      return groups.filterBy('hasUsers').sortBy('name');
-    });
+    .then((groups) => groups.filterBy('hasUsers').sortBy('name'));
   }
 });
