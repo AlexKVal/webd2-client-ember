@@ -10,5 +10,6 @@ export default DS.Model.extend({
   info: attr('string'),
   users: hasMany('user', { async: false }), // embedded
 
-  hasUsers: computed.gt('users.length', 0)
+  userCount: computed.alias('users.length'),
+  hasUsers: computed.gt('userCount', 0)
 });

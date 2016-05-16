@@ -4,13 +4,13 @@
       <div class="row">
         {{#link-to 'user-groups.edit' group tagName="div" class="col-xs-11 u-no-lr-padding"}}
           <div class="col-xs-8"><strong>{{group.name}}</strong></div>
-          <div class="col-xs-4 text-right">{{group.users.length}}</div>
+          <div class="col-xs-4 text-right">{{group.userCount}}</div>
           <div class="col-xs-12"><small><em>{{group.info}}</em></small></div>
         {{/link-to}}
         <div class="col-xs-1 u-no-lr-padding">
           {{#if deleted}}
             <button {{action 'undelete' group}} class="btn btn-success btn-xs btn-vert">+</button>
-          {{else if group.users.length}}
+          {{else if group.hasUsers}}
             <button disabled=true class="btn btn-default btn-xs btn-vert">&times;</button>
           {{else}}
             <button {{action 'delete' group}}
