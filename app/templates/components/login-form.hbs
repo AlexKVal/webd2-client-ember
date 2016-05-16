@@ -3,7 +3,7 @@
     <h3 class="panel-title">{{user.name}}</h3>
   </div>
   <div class="panel-body">
-    <form {{action 'authenticate' user.id password on='submit'}}>
+    <form {{action 'login' on='submit'}}>
       <div class="input-group">
         {{focus-input value=password
           type="password" class="form-control" placeholder="password"}}
