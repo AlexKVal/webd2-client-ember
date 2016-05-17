@@ -11,5 +11,7 @@ export default DS.Model.extend({
   users: hasMany('user', { async: false }), // embedded
 
   userCount: computed.alias('users.length'),
-  hasUsers: computed.gt('userCount', 0)
+  hasUsers: computed.gt('userCount', 0),
+
+  canBeDeleted: computed.not('hasUsers')
 });
