@@ -1,0 +1,9 @@
+{{#if model.hide}}
+  <button {{action 'restore'}}
+    class="btn btn-success btn-xs btn-vert">+</button>
+{{else if model.canBeDeleted}}
+  <button {{action 'delete'}}
+    class="btn btn-danger btn-xs btn-vert">&times;</button>
+{{else}}
+  <button disabled=true class="btn btn-default btn-xs btn-vert">&times;</button>
+{{/if}}
