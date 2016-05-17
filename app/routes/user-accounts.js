@@ -15,24 +15,24 @@ export default SuperAdminsOnly.extend({
   },
 
   actions: {
-    delete(user) {
-      user.set('hide', true);
-      user.save()
-      .then(() => this.get('flashMessages').success(`${user.get('name')} has been deleted`))
+    delete(item) {
+      item.set('hide', true);
+      item.save()
+      .then(() => this.get('flashMessages').success(`${item.get('name')} has been deleted`))
       .catch((error) => {
         this._flashError(error);
-        user.rollbackAttributes();
+        item.rollbackAttributes();
       });
     },
 
-    undelete(user) {
-      user.set('hide', false);
-      user.save()
-      .then(() => this.get('flashMessages').success(`${user.get('name')} has been restored`))
+    restore(item) {
+      item.set('hide', false);
+      item.save()
+      .then(() => this.get('flashMessages').success(`${item.get('name')} has been restored`))
       .then(() => this.transitionTo('user-accounts.index', {queryParams: {deleted: false}}))
       .catch((error) => {
         this._flashError(error);
-        user.rollbackAttributes();
+        item.rollbackAttributes();
       });
     }
   }
