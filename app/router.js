@@ -21,6 +21,8 @@ Router.map(function() {
   });
   this.route('options');
   this.route('settled-accounts');
+
+  this.route('not-found', { path: '/*path' });
 });
 
 export default Router;
