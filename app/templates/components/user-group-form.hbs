@@ -40,7 +40,7 @@
 
   <div class="btn-group" role="group">
     {{#if model.hide}}
-      <button {{action "undelete" model}} type="button"
+      <button {{action "restore"}} type="button"
         class="btn btn-success"
       >Restore</button>
     {{else if hasUnsavedChanges}}

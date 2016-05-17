@@ -14,24 +14,24 @@ export default SuperAdminsOnly.extend({
   },
 
   actions: {
-    delete(unit) {
-      unit.set('hide', true);
-      unit.save()
-      .then(() => this.get('flashMessages').success(`${unit.get('name')} has been deleted`))
+    delete(item) {
+      item.set('hide', true);
+      item.save()
+      .then(() => this.get('flashMessages').success(`${item.get('name')} has been deleted`))
       .catch((error) => {
         this._flashError(error);
-        unit.rollbackAttributes();
+        item.rollbackAttributes();
       });
     },
 
-    undelete(unit) {
-      unit.set('hide', false);
-      unit.save()
-      .then(() => this.get('flashMessages').success(`${unit.get('name')} has been restored`))
+    restore(item) {
+      item.set('hide', false);
+      item.save()
+      .then(() => this.get('flashMessages').success(`${item.get('name')} has been restored`))
       .then(() => this.transitionTo('user-groups.index', {queryParams: {deleted: false}}))
       .catch((error) => {
         this._flashError(error);
-        unit.rollbackAttributes();
+        item.rollbackAttributes();
       });
     }
   }

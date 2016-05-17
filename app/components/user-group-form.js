@@ -23,8 +23,8 @@ export default Ember.Component.extend({
       .catch((error) => this.get('flashMessages').danger(messageFromError(error), {sticky: true}));
     },
 
-    undelete(unit) {
-      this.get('onUndelete')(unit);
+    restore() {
+      this.get('restoreAction')(this.get('model'));
     }
   }
 });
