@@ -14,7 +14,7 @@
  */
 body {
   padding-top: 60px;
-  padding-bottom: 20px;
+  padding-bottom: 60px;
 }
 
 .navbar-header > .pull-right {
@@ -35,9 +35,10 @@ body {
 }
 
 @media (max-width: 435px) {
-  /* nav-bar */
+  /* navbars */
   body {
     padding-top: 35px;
+    padding-bottom: 20px;
   }
 
   .navbar {

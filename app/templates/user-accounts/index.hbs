@@ -14,7 +14,7 @@
   {{/each}}
 </div>
 
-{{#nav-bar-bottom}}
+{{#navbar-bottom}}
   {{#link-to 'user-accounts.new'
     class="btn btn-info"}}New{{/link-to}}
 
@@ -36,4 +36,4 @@
     {{#link-to 'user-accounts' (query-params adminsOnly=true)
       class="btn btn-default"}}Admins only{{/link-to}}
   {{/if}}
-{{/nav-bar-bottom}}
+{{/navbar-bottom}}
