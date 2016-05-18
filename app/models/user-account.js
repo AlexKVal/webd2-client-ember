@@ -18,17 +18,5 @@ export default DS.Model.extend({
     const rights = this.get('rights');
 
     return !/Admin/.test(name) && rights !== 3;
-  }),
-
-  _updateLoginModels() {
-    this.get('store').findAll('user-group');
-  },
-
-  didUpdate() {
-    this._updateLoginModels();
-  },
-
-  didCreate() {
-    this._updateLoginModels();
-  }
+  })
 });
