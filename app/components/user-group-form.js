@@ -4,8 +4,6 @@ import messageFromError from 'webd2-client-ember/utils/message-from-error';
 const { service } = Ember.inject;
 
 export default Ember.Component.extend({
-  flashMessages: service(),
-
   hasUnsavedChanges: Ember.computed('model.hasDirtyAttributes', function() {
     // here go validations
     return this.get('model.hasDirtyAttributes');

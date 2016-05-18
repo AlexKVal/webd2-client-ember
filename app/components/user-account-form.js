@@ -4,8 +4,6 @@ import messageFromError from 'webd2-client-ember/utils/message-from-error';
 const { service } = Ember.inject;
 
 export default Ember.Component.extend({
-  flashMessages: service(),
-
   rights: [1, 2, 3, 4, 5, 6], // TODO use real rights
 
   _savePreviousModelRelations() {

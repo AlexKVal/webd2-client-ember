@@ -5,7 +5,6 @@ import messageFromError from 'webd2-client-ember/utils/message-from-error';
 const { inject: { service } } = Ember;
 
 export default Ember.Route.extend(ApplicationRouteMixin, {
-  flashMessages: service(),
   session: service(),
 
   actions: {

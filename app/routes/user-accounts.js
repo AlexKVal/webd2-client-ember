@@ -1,10 +1,7 @@
-import Ember from 'ember';
 import SuperAdminsOnly from 'webd2-client-ember/routes/authz-super-admins-only';
 import messageFromError from 'webd2-client-ember/utils/message-from-error';
 
 export default SuperAdminsOnly.extend({
-  flashMessages: Ember.inject.service(),
-
   model() {
     // sideload joined relations to show them on the index/List screen
     return this.store.query('user-account', { includeJoined: true });
