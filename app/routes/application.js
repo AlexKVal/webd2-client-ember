@@ -1,31 +1,30 @@
 import Ember from 'ember';
 import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mixin';
-import messageFromError from 'webd2-client-ember/utils/message-from-error';
+import Flash from 'webd2-client-ember/mixins/flash';
 
 const { inject: { service } } = Ember;
 
-export default Ember.Route.extend(ApplicationRouteMixin, {
+export default Ember.Route.extend(ApplicationRouteMixin, Flash, {
   session: service(),
 
   actions: {
-    error(error) {
-      this.get('flashMessages').danger(messageFromError(error), {sticky: true});
+    error(errors) {
+      this.flashStickyErrors(errors);
     },
 
     authenticate(id, password) {
       this.get('session').authenticate('authenticator:jwt', { id, password })
       .catch((response) => {
-        const flash = this.get('flashMessages');
 
-        if (!Array.isArray(response.errors)) {
-          return flash.danger(response, {sticky: true});
+        if (!Ember.isArray(response.errors)) {
+          return this.flashStickyErrors(response);
         }
 
         response.errors.forEach((error) => {
           if (error.title === 'Unauthorized') {
-            flash.danger('Wrong password');
+            this.flashDanger('Wrong password');
           } else {
-            flash.danger(error.detail, {sticky: true});
+            this.flashStickyErrors(error.detail);
           }
         });
       });

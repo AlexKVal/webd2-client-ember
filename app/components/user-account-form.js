@@ -1,9 +1,7 @@
 import Ember from 'ember';
-import messageFromError from 'webd2-client-ember/utils/message-from-error';
+import Flash from 'webd2-client-ember/mixins/flash';
 
-const { service } = Ember.inject;
-
-export default Ember.Component.extend({
+export default Ember.Component.extend(Flash, {
   rights: [1, 2, 3, 4, 5, 6], // TODO use real rights
 
   _savePreviousModelRelations() {
@@ -36,8 +34,8 @@ export default Ember.Component.extend({
     save() {
       this.model.save()
       .then(() => this._savePreviousModelRelations())
-      .then(() => this.get('flashMessages').success('Saved'))
-      .catch((error) => this.get('flashMessages').danger(messageFromError(error), {sticky: true}));
+      .then(() => this.flashSuccess('Saved'))
+      .catch((error) => this.flashStickyErrors(error));
     },
 
     restore() {
