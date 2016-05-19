@@ -1,7 +1,6 @@
 import SuperAdminsOnly from 'webd2-client-ember/routes/authz-super-admins-only';
-import Flash from 'webd2-client-ember/mixins/flash';
 
-export default SuperAdminsOnly.extend(Flash, {
+export default SuperAdminsOnly.extend({
   model() {
     // sideload joined relations to show them on the index/List screen
     return this.store.query('user-account', { includeJoined: true });
