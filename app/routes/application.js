@@ -38,6 +38,17 @@ export default Ember.Route.extend(ApplicationRouteMixin, Flash, {
         this.flashStickyErrors(errors);
         model.rollbackAttributes();
       });
+    },
+
+    restore(model, listRoute) {
+      model.set('hide', false);
+      model.save()
+      .then(() => this.flashSuccess(`${model.get('name')} has been restored`))
+      .then(() => this.transitionTo(listRoute, {queryParams: {deleted: false}}))
+      .catch((errors) => {
+        this.flashStickyErrors(errors);
+        model.rollbackAttributes();
+      });
     }
   }
 });

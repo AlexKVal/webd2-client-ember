@@ -8,7 +8,7 @@
           <div class="col-xs-6">{{user.rights}}</div>
           <div class="col-xs-6 text-right">{{user.userGroup.name}}</div>
         {{/link-to}}
-        {{delete-button-column model=user deleteAction='delete' restoreAction='restore'}}
+        {{delete-button-column model=user deleteAction='delete' restoreAction='restore' listRoute='user-accounts.index'}}
       </div>
     </div>
   {{/each}}

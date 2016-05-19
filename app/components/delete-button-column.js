@@ -8,7 +8,7 @@ export default Ember.Component.extend({
       this.sendAction('deleteAction', this.get('model'));
     },
     restore () {
-      this.sendAction('restoreAction', this.get('model'));
+      this.sendAction('restoreAction', this.get('model'), this.get('listRoute'));
     }
   }
 });

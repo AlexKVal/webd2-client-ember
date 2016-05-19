@@ -7,7 +7,7 @@
           <div class="col-xs-4 text-right">{{group.userCount}}</div>
           <div class="col-xs-12"><small><em>{{group.info}}</em></small></div>
         {{/link-to}}
-        {{delete-button-column model=group deleteAction='delete' restoreAction='restore'}}
+        {{delete-button-column model=group deleteAction='delete' restoreAction='restore' listRoute='user-groups.index'}}
       </div>
     </div>
   {{/each}}
