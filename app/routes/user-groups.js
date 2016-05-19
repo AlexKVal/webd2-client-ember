@@ -6,16 +6,6 @@ export default SuperAdminsOnly.extend({
   },
 
   actions: {
-    delete(item) {
-      item.set('hide', true);
-      item.save()
-      .then(() => this.flashSuccess(`${item.get('name')} has been deleted`))
-      .catch((errors) => {
-        this.flashStickyErrors(errors);
-        item.rollbackAttributes();
-      });
-    },
-
     restore(item) {
       item.set('hide', false);
       item.save()

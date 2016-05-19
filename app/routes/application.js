@@ -28,6 +28,16 @@ export default Ember.Route.extend(ApplicationRouteMixin, Flash, {
           }
         });
       });
+    },
+
+    delete (model) {
+      model.set('hide', true);
+      model.save()
+      .then(() => this.flashSuccess(`${model.get('name')} has been deleted`))
+      .catch((errors) => {
+        this.flashStickyErrors(errors);
+        model.rollbackAttributes();
+      });
     }
   }
 });
